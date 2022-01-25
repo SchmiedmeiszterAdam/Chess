@@ -36,12 +36,16 @@ main{
     background-position: center;
     background-size: cover;
 }
-.highlight{
+.highlight,.red-highlight{
     position: absolute;
     inset: 0;
+}
+.highlight{
     background-color: rgba(255, 255, 0,0.6);
 }
-
+.red-highlight{
+    background-color: rgba(255, 0, 0,0.6);
+}
 #table .row:nth-child(odd) .table-sektor:nth-child(even){
     background-color: rgb(200,114,63);
 }
