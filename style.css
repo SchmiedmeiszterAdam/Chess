@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: darkblue;
+}
+main{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+#table{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 650px;
+    aspect-ratio: 1/1;
+    background-color: white;
+}
+.row{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+}
+.table-sektor{
+    width: 100%;
+    height: 100%;
+}
+.table-sektor > *{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+#table .row:nth-child(odd) .table-sektor:nth-child(even){
+    background-color: rgb(200,114,63);
+}
+#table .row:nth-child(even) .table-sektor:nth-child(odd){
+    background-color: rgb(200,114,63);
+}
