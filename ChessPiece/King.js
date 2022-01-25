@@ -1,5 +1,6 @@
 class King extends ChessPieces{
-    constructor(element,color,tableParent){
-        super(element,color,tableParent)
+    constructor(element,color,tableParent,position1,position2){
+        super(element,color,tableParent,position1,position2)
+
     }
 }
