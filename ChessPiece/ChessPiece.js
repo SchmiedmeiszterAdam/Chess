@@ -1,4 +1,4 @@
-class ChessPieces {
+class ChessPiece {
     constructor(element, color, tableParent,position1,position2) {
         this.element = element
         this.color = color
@@ -11,6 +11,7 @@ class ChessPieces {
 
         this.element.on("click",()=>{
             $("div").remove(".highlight");
+            $("div").remove(".red-highlight");
             this.tableParent.chessPieces.forEach(element => {
             });
             this.highlight()

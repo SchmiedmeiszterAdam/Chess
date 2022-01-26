@@ -10,7 +10,7 @@ class Table {
             this.table[i] = new Array(8)
         }
         let index = 0
-        let template, obj
+        let template, obj, sektor
         let color = "black"
         for (var i = 0; i < this.table.length; i++) {
             if (i === 5) {
@@ -18,7 +18,7 @@ class Table {
             }
             $("#table").append("<div class = 'row row-" + i + "'></div>")
             for (var k = 0; k < this.table[i].length; k++) {
-                obj = $("<div class = 'table-sektor table-sektor-" + index + "'></div>").appendTo("#table .row-" + i + "")
+                sektor = $("<div class = 'table-sektor table-sektor-" + index + "'></div>").appendTo("#table .row-" + i + "")
                 //obj = $("<div class = 'pawn'></div>").appendTo($(".table-sektor-" + index))
                 if (i === 1 || i === 6) {
                     template = $("<div class = 'pawn'></div>").appendTo($(".table-sektor-" + index))
@@ -44,10 +44,13 @@ class Table {
                     template = $("<div class = 'king'></div>").appendTo($(".table-sektor-" + index))
                     obj = new King(template, color, this, i, k)
                 }
-                this.table[i][k] = obj
-                if(obj instanceof ChessPieces){
+                else{
+                    obj = null
+                }
+                if(obj instanceof ChessPiece){
                     this.chessPieces.push(obj)
                 }
+                this.table[i][k] = sektor
                 index++
             }
         }

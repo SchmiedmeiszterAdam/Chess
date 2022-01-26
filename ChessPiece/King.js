@@ -1,4 +1,4 @@
-class King extends ChessPieces{
+class King extends ChessPiece{
     constructor(element,color,tableParent,position1,position2){
         super(element,color,tableParent,position1,position2)
 
