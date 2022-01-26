@@ -21,27 +21,27 @@ class Table {
             for (var k = 0; k < this.table[i].length; k++) {
                 sektor = $("<div class = 'table-sektor table-sektor-" + index + "'></div>").appendTo("#table .row-" + i + "")
                 if (i === 1 || i === 6) {
-                    template = $("<div class = 'pawn'></div>").appendTo($(".table-sektor-" + index))
+                    template = $("<div class = 'pawn chess-piece'></div>").appendTo($(".table-sektor-" + index))
                     obj = new Pawn(template, color, this, i, k)
                 }
                 else if ((i === 0 && (k === 1 || k === 6)) || (i === 7 && (k === 1 || k === 6))) {
-                    template = $("<div class = 'knight'></div>").appendTo($(".table-sektor-" + index))
+                    template = $("<div class = 'knight chess-piece'></div>").appendTo($(".table-sektor-" + index))
                     obj = new Knight(template, color, this, i, k)
                 }
                 else if ((i === 0 && (k === 0 || k === 7)) || (i === 7 && (k === 0 || k === 7))) {
-                    template = $("<div class = 'rook'></div>").appendTo($(".table-sektor-" + index))
+                    template = $("<div class = 'rook chess-piece'></div>").appendTo($(".table-sektor-" + index))
                     obj = new Rook(template, color, this, i, k)
                 }
                 else if ((i === 0 && (k === 2 || k === 5)) || (i === 7 && (k === 2 || k === 5))) {
-                    template = $("<div class = 'bishop'></div>").appendTo($(".table-sektor-" + index))
+                    template = $("<div class = 'bishop chess-piece'></div>").appendTo($(".table-sektor-" + index))
                     obj = new Bishop(template, color, this, i, k)
                 }
                 else if (k === 3 && (i === 0 || i === 7)) {
-                    template = $("<div class = 'queen'></div>").appendTo($(".table-sektor-" + index))
+                    template = $("<div class = 'queen chess-piece'></div>").appendTo($(".table-sektor-" + index))
                     obj = new Queen(template, color, this, i, k)
                 }
                 else if (k === 4 && (i === 0 || i === 7)) {
-                    template = $("<div class = 'king'></div>").appendTo($(".table-sektor-" + index))
+                    template = $("<div class = 'king chess-piece'></div>").appendTo($(".table-sektor-" + index))
                     obj = new King(template, color, this, i, k)
                 }
                 else{
@@ -57,7 +57,7 @@ class Table {
         $(window).on("clickOnEmptySlot",event =>{
             let slot = event.detail.element
             let positions = event.detail.positions
-            this.activePiece.move(slot,positions)
+            this.activePiece.freeMove(slot,positions)
         })
     }
 }

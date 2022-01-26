@@ -27,12 +27,18 @@ class Pawn extends ChessPiece {
             this.tableParent.table[this.positions[0] + (2 * c)][this.positions[1]].append("<div class = 'highlight'></div>")
         }
     }
-    move(slot, positions) {
-        if($(slot).find('.highlight').length === 1){
-            this.firstMove = false
-            $(slot).append(this.element)
-            this.positions = positions
-            this.unhighLight()
+    freeMove(slot, positions) {
+        if($(slot).find('.highlight').length === 1 || $(slot).find('.red-highlight').length === 1){
+            this.move(slot,positions)
         }
+    }
+    hit(slot, positions){
+        this.move(slot,positions)
+    }
+    move(slot,positions){
+        this.firstMove = false
+        $(slot).append(this.element)
+        this.positions = positions
+        this.unhighLight()
     }
 }

@@ -7,12 +7,19 @@ class ChessPiece {
         this.positions = []
         this.positions.push(position1)
         this.positions.push(position2)
-        this.element.css("background-image", "url(Pics/" + this.color + "-" + $(this.element).attr('class') + ".png)")
+        this.element.css("background-image", "url(Pics/" + this.color + "-" + $(this.element).attr('class').split(/\s+/)[0] + ".png)")
 
         this.element.on("click",()=>{
-            this.tableParent.activePiece = this
-            this.unhighLight()
-            this.highlight()
+            if($(this.parentElement).find('.red-highlight').length === 1){
+                $(this.parentElement).empty()
+                this.tableParent.activePiece.hit($(this.parentElement),this.positions)
+                console.log("ütve")
+            }
+            else{
+                this.tableParent.activePiece = this
+                this.unhighLight()
+                this.highlight()
+            }
         })
     }
     unhighLight(){

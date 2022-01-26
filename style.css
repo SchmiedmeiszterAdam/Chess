@@ -30,11 +30,13 @@ main{
     height: 100%;
     position: relative;
 }
-.table-sektor > *{
+.table-sektor .chess-piece{
+    position: absolute;
     width: 100%;
     height: 100%;
     background-position: center;
     background-size: cover;
+    z-index: 2;
 }
 .highlight,.red-highlight{
     position: absolute;
