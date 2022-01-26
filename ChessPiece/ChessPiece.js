@@ -17,4 +17,11 @@ class ChessPiece {
             this.highlight()
         })
     }
+    chessPieceOnPoz(poz1,poz2){
+        let i = 0
+        while(i < this.tableParent.chessPieces.length && !(this.tableParent.chessPieces[i].positions[0] === poz1 &&this.tableParent.chessPieces[i].positions[1] === poz2)){
+            i++
+        }
+        return this.tableParent.chessPieces[i]
+    }
 }

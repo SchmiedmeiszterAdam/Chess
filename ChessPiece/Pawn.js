@@ -15,10 +15,10 @@ class Pawn extends ChessPiece {
         if (this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1]].is(':empty')) {
             this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1]].append("<div class = 'highlight'></div>")
         }
-        if (this.positions[1] != 0 && !this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1] - 1].is(':empty')) {
+        if (this.positions[1] != 0 && !this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1] - 1].is(':empty') && this.chessPieceOnPoz(this.positions[0] + (1 * c),this.positions[1] - 1).color != this.color) {
             this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1] - 1].append("<div class = 'red-highlight'></div>")
         }
-        if (this.positions[1] != 7 && !this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1] + 1].is(':empty')) {
+        if (this.positions[1] != 7 && !this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1] + 1].is(':empty') && this.chessPieceOnPoz(this.positions[0] + (1 * c),this.positions[1] + 1).color != this.color) {
             this.tableParent.table[this.positions[0] + (1 * c)][this.positions[1] + 1].append("<div class = 'red-highlight'></div>")
         }
         if (this.firstMove) {
@@ -26,6 +26,6 @@ class Pawn extends ChessPiece {
         }
     }
     move() {
-
+        
     }
 }
