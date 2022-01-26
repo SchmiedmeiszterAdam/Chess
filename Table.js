@@ -2,8 +2,9 @@ class Table {
     constructor() {
         this.table = new Array(8)
         this.chessPieces = []
+        this.activePiece
         this.createTable()
-        this.updateTable()
+
     }
     createTable() {
         for (let i = 0; i < this.table.length; i++) {
@@ -19,7 +20,6 @@ class Table {
             $("#table").append("<div class = 'row row-" + i + "'></div>")
             for (var k = 0; k < this.table[i].length; k++) {
                 sektor = $("<div class = 'table-sektor table-sektor-" + index + "'></div>").appendTo("#table .row-" + i + "")
-                //obj = $("<div class = 'pawn'></div>").appendTo($(".table-sektor-" + index))
                 if (i === 1 || i === 6) {
                     template = $("<div class = 'pawn'></div>").appendTo($(".table-sektor-" + index))
                     obj = new Pawn(template, color, this, i, k)
@@ -45,7 +45,7 @@ class Table {
                     obj = new King(template, color, this, i, k)
                 }
                 else{
-                    obj = null
+                    new EmptySlot(sektor,i,k)
                 }
                 if(obj instanceof ChessPiece){
                     this.chessPieces.push(obj)
@@ -54,12 +54,10 @@ class Table {
                 index++
             }
         }
-    }
-    updateTable() {
-        for (let i = 0; i < this.table.length; i++) {
-            for (let k = 0; k < this.table[i].length; k++) {
-
-            }
-        }
+        $(window).on("clickOnEmptySlot",event =>{
+            let slot = event.detail.element
+            let positions = event.detail.positions
+            this.activePiece.move(slot,positions)
+        })
     }
 }
