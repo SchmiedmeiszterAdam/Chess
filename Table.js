@@ -45,19 +45,21 @@ class Table {
                     obj = new King(template, color, this, i, k)
                 }
                 else{
-                    new EmptySlot(sektor,i,k)
+                    obj = new EmptySlot(sektor,i,k)
                 }
                 if(obj instanceof ChessPiece){
                     this.chessPieces.push(obj)
                 }
-                this.table[i][k] = sektor
+                this.table[i][k] = obj
                 index++
             }
         }
         $(window).on("clickOnEmptySlot",event =>{
             let slot = event.detail.element
             let positions = event.detail.positions
-            this.activePiece.freeMove(slot,positions)
+            if(this.activePiece instanceof ChessPiece){
+                this.activePiece.freeMove(slot,positions)
+            }
         })
     }
 }

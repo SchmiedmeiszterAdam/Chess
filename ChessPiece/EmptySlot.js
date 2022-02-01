@@ -7,6 +7,7 @@ class EmptySlot {
         this.element.on("click", () => {
             this.clickTrigger()
         })
+        
     }
     clickTrigger() {
         let event = new CustomEvent("clickOnEmptySlot", { detail: this })
